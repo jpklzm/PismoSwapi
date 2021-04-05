@@ -5,6 +5,11 @@ const Reducer = (state, action) => {
         ...state,
         movie: action.payload,
       };
+    case "SET_CURRENT_MOVIE_LIST":
+      return {
+        ...state,
+        movieList: action.payload,
+      };
     default:
       return state;
   }
