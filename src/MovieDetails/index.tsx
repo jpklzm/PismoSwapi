@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useContext, useCallback } from "react";
+import React, { useContext, useCallback } from "react";
 import "./styles.css";
 import { Context } from "../Store/Store";
 import { useHistory } from "react-router-dom";

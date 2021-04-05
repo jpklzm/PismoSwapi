@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieList renders correctly 1`] = `
+<MovieList>
+  <div>
+    <h1
+      className="title"
+    >
+      <span
+        className="red"
+      >
+        Pismo
+      </span>
+       
+      <span
+        className="blue"
+      >
+        SWAPI
+      </span>
+    </h1>
+    <div
+      className="movie-container"
+    >
+      <img
+        src="https://64.media.tumblr.com/c0d8be3a1d2bfd58a1eb6c91baa5747b/5321eccd302337fc-fc/s400x600/f5ceaa1e1f5a5f705142e087ed9369c0eff52c63.gifv"
+      />
+    </div>
+  </div>
+</MovieList>
+`;

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import MovieList from "./MovieList";
 import MovieDetails from "./MovieDetails";
 import { BrowserRouter, Switch, Route } from "react-router-dom";

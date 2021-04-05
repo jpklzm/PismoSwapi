@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetails renders correctly 1`] = `
+<MovieDetails>
+  <div>
+    <h1
+      className="title"
+    >
+      filme
+    </h1>
+    <h2>
+      Episode undefined
+    </h2>
+    <h2>
+      Director: diretor
+    </h2>
+    <h2>
+      Producer: produtor
+    </h2>
+    <button
+      className="backbutton"
+      onClick={[Function]}
+    >
+      Back
+    </button>
+  </div>
+</MovieDetails>
+`;
