@@ -35,6 +35,33 @@ const MovieList = () => {
     }
   }, []);
 
+  const countCharacters = () => {
+    const characterCount = [
+      {
+        url: "http://swapi.dev/api/people/1/",
+        count: 0,
+      },
+    ];
+    movieList.forEach((movie: any) => {
+      movie.characters.forEach((e: any) => {
+        const character = characterCount.find((c: any) => c.url === e);
+        if (character) {
+          const index = characterCount.findIndex((ch: any) => {
+            return ch.url === character.url;
+          });
+          characterCount[index].count += 1;
+        } else {
+          characterCount.push({
+            url: e.url,
+            count: 0,
+          });
+        }
+      });
+    });
+
+    console.log(characterCount);
+  };
+
   const clearFilter = () => {
     setFilteredList(state.movieList);
   };
@@ -76,6 +103,13 @@ const MovieList = () => {
           }}
         >
           Luke Skywalker
+        </button>
+        <button
+          onClick={() => {
+            countCharacters();
+          }}
+        >
+          Count
         </button>
 
         {(filteredList as any).map((movie: any, index: any) => (
