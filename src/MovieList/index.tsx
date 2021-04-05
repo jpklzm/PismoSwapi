@@ -15,10 +15,20 @@ const MovieList = () => {
         setMovieList(response.results);
         setIsLoading(false);
       })
-      .catch((error) => console.log(error));
-  }, [movieList]);
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   console.log(movieList);
+  const mock = [
+    {
+      title: "um filme",
+    },
+    {
+      title: "outro filme",
+    },
+  ];
 
   return (
     <div>
@@ -30,9 +40,13 @@ const MovieList = () => {
           <img src="https://64.media.tumblr.com/c0d8be3a1d2bfd58a1eb6c91baa5747b/5321eccd302337fc-fc/s400x600/f5ceaa1e1f5a5f705142e087ed9369c0eff52c63.gifv" />
         )}
 
-        {(movieList as any).map((movie: any, index: any) => (
+        {(mock as any).map((movie: any, index: any) => (
           <MovieCard key={index} movie={movie} />
         ))}
+
+        {/* {(movieList as any).map((movie: any, index: any) => (
+          <MovieCard key={index} movie={movie} />
+        ))} */}
       </div>
     </div>
   );
