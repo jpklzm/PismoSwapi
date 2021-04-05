@@ -5,6 +5,7 @@ import { Context } from "../Store/Store";
 
 const MovieList = () => {
   const [movieList, setMovieList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   //@ts-ignore
@@ -18,6 +19,7 @@ const MovieList = () => {
         .then((res) => res.json())
         .then((response) => {
           setMovieList(response.results);
+          setFilteredList(response.results);
           dispatch({
             type: "SET_CURRENT_MOVIE_LIST",
             payload: response.results,
@@ -29,8 +31,27 @@ const MovieList = () => {
         });
     } else {
       setMovieList(state.movieList);
+      setFilteredList(state.movieList);
     }
   }, []);
+
+  const clearFilter = () => {
+    setFilteredList(state.movieList);
+  };
+
+  const filterByCharacter = (character: string) => {
+    const filteredMovieList: any = [];
+
+    movieList.forEach((movie: any) => {
+      movie.characters.forEach((e: any) => {
+        if (e === character) {
+          filteredMovieList.push(movie);
+        }
+      });
+    });
+
+    setFilteredList(filteredMovieList);
+  };
 
   return (
     <div>
@@ -42,7 +63,22 @@ const MovieList = () => {
           <img src="https://64.media.tumblr.com/c0d8be3a1d2bfd58a1eb6c91baa5747b/5321eccd302337fc-fc/s400x600/f5ceaa1e1f5a5f705142e087ed9369c0eff52c63.gifv" />
         )}
 
-        {(movieList as any).map((movie: any, index: any) => (
+        <button
+          onClick={() => {
+            clearFilter();
+          }}
+        >
+          Clear
+        </button>
+        <button
+          onClick={() => {
+            filterByCharacter("http://swapi.dev/api/people/1/");
+          }}
+        >
+          Luke Skywalker
+        </button>
+
+        {(filteredList as any).map((movie: any, index: any) => (
           <MovieCard key={index} movie={movie} />
         ))}
       </div>
