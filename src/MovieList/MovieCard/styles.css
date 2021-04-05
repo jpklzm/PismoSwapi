@@ -1,0 +1,12 @@
+.movie {
+  background-color: rgb(100, 100, 100, 0.5);
+  padding: 15px 30px;
+  border-radius: 10px;
+  margin: 5px;
+  color: yellow;
+  cursor: pointer;
+}
+
+.movie:hover {
+  background-color: rgb(100, 100, 100, 1);
+}
