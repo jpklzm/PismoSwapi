@@ -17,7 +17,6 @@ const MovieList = () => {
       })
         .then((res) => res.json())
         .then((response) => {
-          console.log("fiz request");
           setMovieList(response.results);
           dispatch({
             type: "SET_CURRENT_MOVIE_LIST",
@@ -29,8 +28,6 @@ const MovieList = () => {
           console.log(error);
         });
     } else {
-      console.log("não fiz request");
-
       setMovieList(state.movieList);
     }
   }, []);
